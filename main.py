@@ -50,6 +50,18 @@ def face_data(image, CallOut, Distance_level):
         
         # cv2.circle(image, (face_center_x, face_center_y),5, (255,0,255), 3 )
         if CallOut==True:
+            LLV = int(h*0.12) 
+             # print(LLV)
+            line_thickness =2
+
+            # cv2.rectangle(image, (x, y), (x+w, y+h), BLACK, 1)
+            cv2.line(image, (x,y+LLV), (x+w, y+LLV), (GREEN),line_thickness)
+            cv2.line(image, (x,y+h), (x+w, y+h), (GREEN),line_thickness)
+            cv2.line(image, (x,y+LLV), (x, y+LLV+LLV), (GREEN),line_thickness)
+            cv2.line(image, (x+w,y+LLV), (x+w, y+LLV+LLV), (GREEN),line_thickness)
+            cv2.line(image, (x,y+h), (x, y+h-LLV), (GREEN),line_thickness)
+            cv2.line(image, (x+w,y+h), (x+w, y+h-LLV), (GREEN),line_thickness)
+
             cv2.line(image, (x,y), (face_center_x,face_center_y ), (155,155,155),1)
             cv2.line(image, (x,y-11), (x+210, y-11), (YELLOW), 25)
             cv2.line(image, (x,y-11), (x+Distance_level, y-11), (GREEN), 25)
@@ -77,16 +89,17 @@ Direction =0
 # Max 0 and Min 255 Speed of Motors 
 Motor1_Speed =0 # Speed of motor Accurding to PMW values in Arduino 
 Motor2_Speed =0
+Truing_Speed =180
+net_Speed =120
 
-net_Speed =255
 while True:
     _, frame = cap.read()
     frame_height, frame_width, _ = frame.shape
     # print(frame_height, frame_width)
     # calling face_data function
     # Distance_leve =0
-    RightBound = frame_width-170
-    Left_Bound =170
+    RightBound = frame_width-140
+    Left_Bound =140
 
     face_width_in_frame,Faces ,FC_X, FC_Y= face_data(frame, True, Distance_level)
     # finding the distance by calling function Distance finder
@@ -103,8 +116,8 @@ while True:
             # Direction Decider Condition
             if FC_X<Left_Bound:
                 # Writing The motor Speed 
-                Motor1_Speed=net_Speed
-                Motor2_Speed=net_Speed
+                Motor1_Speed=Truing_Speed
+                Motor2_Speed=Truing_Speed
                 print("Left Movement")
                 # Direction of movement
                 Direction=3
@@ -113,8 +126,8 @@ while True:
 
             elif FC_X>RightBound:
                 # Writing The motor Speed 
-                Motor1_Speed=net_Speed
-                Motor2_Speed=net_Speed
+                Motor1_Speed=Truing_Speed
+                Motor2_Speed=Truing_Speed
                 print("Right Movement")
                 # Direction of movement
                 Direction=4
@@ -124,7 +137,7 @@ while True:
                 # cv2.line(frame, (50,65), (170, 65), (BLACK), 15)
                 # cv2.putText(frame, f"Truing = False", (50,70), fonts,0.4, (WHITE),1)
 
-            elif Distance >60:
+            elif Distance >60 and Distance<120:
                 # Writing The motor Speed 
                 Motor1_Speed=net_Speed
                 Motor2_Speed=net_Speed
@@ -134,7 +147,7 @@ while True:
                 cv2.putText(frame, f"Forward Movement", (50,50), fonts,0.4, (YELLOW),1)
                 print("Move Forward")
             
-            elif Distance<40:
+            elif Distance >20 and Distance<40:
                 # Writing The motor Speed 
                 Motor1_Speed=net_Speed
                 Motor2_Speed=net_Speed

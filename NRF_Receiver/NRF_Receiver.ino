@@ -61,7 +61,7 @@ void setup()
     pinMode(Red, OUTPUT);
     pinMode(Green, OUTPUT);
     pinMode(Blue, OUTPUT);
-    
+//    RGB(0,0,255);
     radio.begin(); // Stratig the radio
     // setting up Radio Perameters
     radio.openReadingPipe(0, address);
@@ -80,7 +80,7 @@ void setup()
 //    Right(200,200);
 //    delay(5000);
 //    delay(2000);
-    Stop(0,0);
+//    Stop(0,0);
     
 
   
@@ -110,22 +110,27 @@ if (radio.available()){
   case 1:
   Serial.println("Move Forward");
   Forward(Sp1,Sp2);
+  RGB(0,0,255);
   break;
   case 2:
   Backward(Sp1,Sp2);
+  RGB(255,0,0);
   Serial.println("Move Backward");
   break;
   case 3:
   Left(Sp1,Sp2);
+  RGB(0,255,0);
   Serial.println("Move Left");
   break;
   case 4:
   Right(Sp1, Sp2);
+  RGB(255,255,255);
   Serial.println("Move Right");
   break;
   default:
   Serial.print("None of Above Conditon is True:");
   Stop(0,0);
+  RGB(255,0,255);
   Serial.println("Stoped");
   break;
   
