@@ -81,7 +81,10 @@ void setup()
 //    delay(5000);
 //    delay(2000);
 //    Stop(0,0);
-    
+////    Backward(100,100);
+//  Right(190,190);
+//    delay(5000);
+//    Stop(0,0);
 
   
 }

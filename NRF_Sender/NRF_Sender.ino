@@ -28,7 +28,7 @@ Data_Pack data; // Creating Variables with above structure
 void setup()
 {
     Serial.begin(9600);
-    radio.begin(); // Stratig the radio
+    radio.begin(); // Starting the radio
     // setting up Radio Perameters
     radio.openWritingPipe(address);
     radio.setAutoAck(false);

@@ -11,6 +11,7 @@ GREEN = (0,255,0)
 RED = (0,0,255)
 BLACK = (0,0,0)
 YELLOW =(0,255,255)
+PERPEL = (255,0,255)
 WHITE = (255,255,255)
 
 fonts = cv2.FONT_HERSHEY_COMPLEX
@@ -37,7 +38,11 @@ def face_data(image, CallOut, Distance_level):
     face_center_x =0
     face_center_y =0
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    faces = face_detector.detectMultiScale(gray_image, 1.3, 5) # better detection at scaling factor 1.21/ conumse more cpu.
+    # scaleFactor=1.1,
+    # minNeighbors=5,
+    # minSize=(30, 30),
+    # flags=cv2.cv.CV_HAAR_SCALE_IMAGE
+    faces = face_detector.detectMultiScale(gray_image, scaleFactor=1.3, minNeighbors=5, minSize=(25,25), flags= cv2.CASCADE_SCALE_IMAGE) # better detection at scaling factor 1.21/ conumse more cpu.
     for (x, y, h, w) in faces:
         # cv2.rectangle(image, (x, y), (x+w, y+h), BLACK, 1)
         face_width = w
@@ -89,8 +94,8 @@ Direction =0
 # Max 0 and Min 255 Speed of Motors 
 Motor1_Speed =0 # Speed of motor Accurding to PMW values in Arduino 
 Motor2_Speed =0
-Truing_Speed =180
-net_Speed =120
+Truing_Speed =170
+net_Speed =90
 
 while True:
     _, frame = cap.read()
@@ -111,8 +116,8 @@ while True:
             Distance_level= int(Distance)
             cv2.line(frame, (50,33), (130, 33), (BLACK), 15)
             cv2.putText(frame, f"Robot State", (50,35), fonts,0.4, (YELLOW),1)
-            cv2.line(frame, (50,65), (170, 65), (BLACK), 15)
-            cv2.putText(frame, f"Move Left {FC_X}", (50,70), fonts,0.4, (WHITE),1)
+            # cv2.line(frame, (50,65), (170, 65), (BLACK), 15)
+            
             # Direction Decider Condition
             if FC_X<Left_Bound:
                 # Writing The motor Speed 
@@ -122,7 +127,7 @@ while True:
                 # Direction of movement
                 Direction=3
                 cv2.line(frame, (50,65), (170, 65), (BLACK), 15)
-                cv2.putText(frame, f"Move Left", (50,70), fonts,0.4, (WHITE),1)
+                cv2.putText(frame, f"Move Left {FC_X}", (50,70), fonts,0.4, (YELLOW),1)
 
             elif FC_X>RightBound:
                 # Writing The motor Speed 
@@ -132,30 +137,30 @@ while True:
                 # Direction of movement
                 Direction=4
                 cv2.line(frame, (50,65), (170, 65), (BLACK), 15)
-                cv2.putText(frame, f"Move Right", (50,70), fonts,0.4, (WHITE),1)
+                cv2.putText(frame, f"Move Right {FC_X}", (50,70), fonts,0.4, (GREEN),1)
             
                 # cv2.line(frame, (50,65), (170, 65), (BLACK), 15)
                 # cv2.putText(frame, f"Truing = False", (50,70), fonts,0.4, (WHITE),1)
 
-            elif Distance >60 and Distance<120:
+            elif Distance >60 and Distance<200:
                 # Writing The motor Speed 
                 Motor1_Speed=net_Speed
                 Motor2_Speed=net_Speed
                 # Direction of movement
                 Direction=2
-                cv2.line(frame, (50,45), (200, 45), (BLACK), 15)
-                cv2.putText(frame, f"Forward Movement", (50,50), fonts,0.4, (YELLOW),1)
+                cv2.line(frame, (50,55), (200, 55), (BLACK), 15)
+                cv2.putText(frame, f"Forward Movement", (50,58), fonts,0.4, (PERPEL),1)
                 print("Move Forward")
             
-            elif Distance >20 and Distance<40:
+            elif Distance >30 and Distance<50:
                 # Writing The motor Speed 
                 Motor1_Speed=net_Speed
                 Motor2_Speed=net_Speed
                 # Direction of movement
                 Direction=1
                 print("Move Backward")
-                cv2.line(frame, (50,45), (200, 45), (BLACK), 15)
-                cv2.putText(frame, f"Backward Movement", (50,50), fonts,0.4, (GREEN),1)
+                cv2.line(frame, (50,55), (200, 55), (BLACK), 15)
+                cv2.putText(frame, f"Backward Movement", (50,58), fonts,0.4, (PERPEL),1)
             
             else:
                 # Writing The motor Speed 
@@ -163,11 +168,11 @@ while True:
                 Motor2_Speed=0
                 # Direction of movement
                 Direction=0
-                cv2.line(frame, (50,45), (200, 45), (BLACK), 15)
-                cv2.putText(frame, f"No Movement", (50,50), fonts,0.4, (WHITE),1)
+                cv2.line(frame, (50,55), (200, 55), (BLACK), 15)
+                cv2.putText(frame, f"No Movement", (50,58), fonts,0.4, (PERPEL),1)
 
             cv2.putText(frame, f"Distance {Distance} CM", (face_x-6,face_y-6), fonts,0.7, (BLACK),2)
-            data = f"A{Motor1_Speed}B{Motor2_Speed}D{Direction}"
+            data = f"A{Motor1_Speed}B{Motor2_Speed}D{Direction}" #A233B233D2
             print(data)
             # Sending data to Arduino 
             Arduino.write(data.encode()) #Encoding the data into Byte fromat and then sending it to the arduino 
