@@ -27,8 +27,32 @@ breadboard Half(size) | 1 or 2
     - It will convert smartphone as wireless camera for us
     - Download software for Windows Linux, and Mac : https://iriun.com/  
     - My Tutorial on **Iriun Webcam** Link: https://youtu.be/0jGcbJdqQ1k
+## Circuit Diagrams
 
 
+### Arduino Nano Connection With NRF
+<br>
+</br>
 
+![Arduino Connection With NRF](/Images/Arduino_NRF_Connection.png)
 
+NRF Connection
+
+![NRF Connection Image](/Images/NRF.png)
+<br>
+</br>
+
+<br>
+</br>
+
+### Motor Driver Connection With Arduino Nano
+<br>
+</br>
+
+![Arduino Connection With Motor Drivers](/Images/Arduino_motorDriver_Connection.png)
+
+<br>
+</br>
+
+![Robot Image](/Images/MotorDriver.png)
 
