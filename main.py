@@ -3,9 +3,12 @@ import serial
 import time 
 # variables
 # distance from camera to object(face) measured
-Known_distance = 30 #centimeter
-# width of face in the real world or Object Plane
-Known_width =14.3
+x, y , h , w = 0,0 ,0 ,0
+DISTANCE=0
+
+Known_distance =31.5 # Inches
+#mine is 14.3 something, measure your face width, are google it 
+Known_width=5.7 #Inches
 # Colors  >>> BGR Format(BLUE, GREEN, RED)
 GREEN = (0,255,0) 
 RED = (0,0,255)
@@ -38,11 +41,11 @@ def face_data(image, CallOut, Distance_level):
     face_center_x =0
     face_center_y =0
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    # scaleFactor=1.1,
+    scaleFactor=1.3
     # minNeighbors=5,
     # minSize=(30, 30),
     # flags=cv2.cv.CV_HAAR_SCALE_IMAGE
-    faces = face_detector.detectMultiScale(gray_image, scaleFactor=1.3, minNeighbors=5, minSize=(25,25), flags= cv2.CASCADE_SCALE_IMAGE) # better detection at scaling factor 1.21/ conumse more cpu.
+    faces = face_detector.detectMultiScale(gray_image, scaleFactor ) # better detection at scaling factor 1.21/ conumse more cpu.
     for (x, y, h, w) in faces:
         # cv2.rectangle(image, (x, y), (x+w, y+h), BLACK, 1)
         face_width = w
@@ -94,8 +97,8 @@ Direction =0
 # Max 0 and Min 255 Speed of Motors 
 Motor1_Speed =0 # Speed of motor Accurding to PMW values in Arduino 
 Motor2_Speed =0
-Truing_Speed =170
-net_Speed =90
+Truing_Speed =180
+net_Speed =80
 
 while True:
     _, frame = cap.read()
@@ -142,7 +145,7 @@ while True:
                 # cv2.line(frame, (50,65), (170, 65), (BLACK), 15)
                 # cv2.putText(frame, f"Truing = False", (50,70), fonts,0.4, (WHITE),1)
 
-            elif Distance >60 and Distance<200:
+            elif Distance >70 and Distance<=200:
                 # Writing The motor Speed 
                 Motor1_Speed=net_Speed
                 Motor2_Speed=net_Speed
@@ -152,7 +155,7 @@ while True:
                 cv2.putText(frame, f"Forward Movement", (50,58), fonts,0.4, (PERPEL),1)
                 print("Move Forward")
             
-            elif Distance >30 and Distance<50:
+            elif Distance >20 and Distance<=70:
                 # Writing The motor Speed 
                 Motor1_Speed=net_Speed
                 Motor2_Speed=net_Speed
@@ -171,7 +174,7 @@ while True:
                 cv2.line(frame, (50,55), (200, 55), (BLACK), 15)
                 cv2.putText(frame, f"No Movement", (50,58), fonts,0.4, (PERPEL),1)
 
-            cv2.putText(frame, f"Distance {Distance} CM", (face_x-6,face_y-6), fonts,0.7, (BLACK),2)
+            cv2.putText(frame, f"Distance {Distance} Inch", (face_x-6,face_y-6), fonts,0.6, (BLACK),2)
             data = f"A{Motor1_Speed}B{Motor2_Speed}D{Direction}" #A233B233D2
             print(data)
             # Sending data to Arduino 
