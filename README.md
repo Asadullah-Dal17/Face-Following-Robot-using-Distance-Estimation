@@ -34,11 +34,13 @@ breadboard Half(size) | 1 or 2
 <br>
 </br>
 
-![Arduino Connection With NRF](/Images/Arduino_NRF_Connection.png)
+
+<img src="Images/Arduino_NRF_Connection.png" width="600" />
 
 NRF Connection
 
-![NRF Connection Image](/Images/NRF.png)
+<img src="Images/NRF.png" width="350" />
+
 <br>
 </br>
 
@@ -48,11 +50,9 @@ NRF Connection
 ### Motor Driver Connection With Arduino Nano
 <br>
 </br>
-
-![Arduino Connection With Motor Drivers](/Images/Arduino_motorDriver_Connection.png)
+<img src="Images/Arduino_motorDriver_Connection.png" width="600" />
 
 <br>
 </br>
 
-![Robot Image](/Images/MotorDriver.png)
-
+<img src="Images/MotorDriver.png" width="350" />
