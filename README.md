@@ -1,7 +1,8 @@
 # Face-Following-Robot-using-Distance-Estimation
 This Robot will follow the Face and according to The Distance Estimation using Computer Vision, without and Sensor Then a Single Camera 
 ## Robot Image 
-![Robot Image](/Images/Robot-image.png)
+<img src="Images/Robot-image.png" width="400" />
+
 ## Hardware Required 
 
 Name | Items
@@ -16,7 +17,7 @@ breadboard Half(size) | 1 or 2
 
 ## Software Required 
 - **Arduino IDE**
-    - NRF Library 
+    - NRF Library ---->  https://github.com/nRF24/RF24
 
 - **Python Modules**
     - Opencv
@@ -56,3 +57,27 @@ NRF Connection
 </br>
 
 <img src="Images/MotorDriver.png" width="350" />
+
+
+
+<br>
+
+### My Social Media 
+<br/>
+<a href="https://www.youtube.com/c/aiphile">
+<img style="border: 5px solid #ddd; border-radius: 100px;
+box-shadow: 0 0 20px 3px rgba(255, 0, 0, 0.6);
+  padding:  5px 5px;" border="10" alt="Youtube" src="icons/Youtube2.png" width="60" height="60">
+</a>
+<a href="https://www.facebook.com/AIPhile17">
+<img style="border: 5px solid #ddd; border-radius: 100px;
+box-shadow: 0 0 20px 3px rgba(0, 255, 255, 0.6);
+  padding:  5px 5px;" border="10" alt="AiPhile" src="icons/facebook.png"  width="60" height="60">
+</a>
+</a>
+<a href="linkedin.com/in/https://www.linkedin.com/in/asadullah-dal17/">
+<img style="border: 5px solid #ddd; border-radius: 100px;
+box-shadow: 0 0 20px 3px rgba(255, 0, 255, 0.6);
+  padding:  5px 5px;" border="10" alt="Linkedin" src="icons/LinkedIn.png" width="60" height="60">
+</a>
+
