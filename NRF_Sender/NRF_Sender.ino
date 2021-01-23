@@ -1,3 +1,15 @@
+/*
+-------------------------------------------
+-    Author: Asadullah Dal                -
+-    =============================        -
+-    Company Name: AiPhile                -
+-    =============================        -
+-    Purpose : Youtube Channel            -
+-    ============================         -
+-    Link :https://youtube.com/c/aiphile  -
+-------------------------------------------
+*/
+
 // Adding necessery Libraries
 #include <SPI.h>
 #include <nRF24L01.h>
@@ -60,8 +72,6 @@ void loop()
 //    data.text = 225;
 //    data.Value =20;
 //    Serial.println(data.text);
-    
-    
-
-Serial.println("data Send: ");
+//    Serial.println("send");
+//    Serial.println("data Send: ");
 }

@@ -1,7 +1,7 @@
 # Face-Following-Robot-using-Distance-Estimation
 This Robot will follow the Face and according to The Distance Estimation using Computer Vision, without and Sensor Then a Single Camera 
 ## Robot Image 
-![Robot Image](/Images/Robot.jpg)
+![Robot Image](/Images/Robot-image.png)
 ## Hardware Required 
 
 Name | Items
@@ -39,7 +39,7 @@ breadboard Half(size) | 1 or 2
 
 NRF Connection
 
-<img src="Images/NRF.png" width="350" />
+<img src="Images/NRF.png" width="400" />
 
 <br>
 </br>
