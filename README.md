@@ -8,6 +8,8 @@
 
 Name | Items
 -----|------
+chassis robot | 1
+Dc Motors | 4
 Arduino | 2
 NRF24L01|2
 L298 Motor Dirver|1 
