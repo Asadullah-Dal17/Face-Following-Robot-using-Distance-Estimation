@@ -45,6 +45,12 @@ NRF Connection
 <br>
 </br>
 
+### **Wires Connection Sender circuit**
+<br> </br>
+
+<img src="Images/Sender Circuit.png" width="1000" > 
+
+
 <br>
 </br>
 
@@ -53,14 +59,18 @@ NRF Connection
 </br>
 <img src="Images/Arduino_motorDriver_Connection.png" width="600" />
 
-<br>
-</br>
 
 <img src="Images/MotorDriver.png" width="350" />
 
-
-
 <br>
+</br>
+
+### **Robot Circuit Wiring Connection**
+<br> </br>
+
+<img src="Images/Circuit Diagram.png" width="1000" > 
+
+
 
 ### My Social Media 
 <br/>
