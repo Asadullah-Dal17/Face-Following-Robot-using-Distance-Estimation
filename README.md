@@ -1,7 +1,8 @@
 # Face-Following-Robot-using-Distance-Estimation
-This Robot will follow the Face and according to The Distance Estimation using Computer Vision, without and Sensor Then a Single Camera 
+*This Robot will follow the Face and according to The Distance Estimation using Computer Vision, without any sensor expect then Single Camera, which provide live video from Robot to Machine*
+
 ## Robot Image 
-<img src="Images/Robot-image.png" width="400" />
+<img src="Images/Robot-image.png" width="500" />
 
 ## Hardware Required 
 
