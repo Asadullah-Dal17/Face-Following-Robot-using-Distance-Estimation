@@ -4,6 +4,13 @@
 ## Robot Image 
 <img src="Images/Robot-image.png" width="500" />
 
+
+
+### Flow Chart
+
+<img src="Images/FlowChart.png" width="600"/> 
+
+
 ## Hardware Required 
 
 Name | Items

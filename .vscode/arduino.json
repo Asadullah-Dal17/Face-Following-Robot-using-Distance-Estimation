@@ -1,0 +1,6 @@
+{
+    "board": "arduino:avr:nano",
+    "configuration": "cpu=atmega328",
+    "port": "COM5",
+    "sketch": "Arduino Code\\RobotCode\\RobotCode.ino"
+}

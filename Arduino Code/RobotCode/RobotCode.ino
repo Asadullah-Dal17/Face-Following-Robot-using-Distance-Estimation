@@ -30,8 +30,7 @@ int Sp1;
 int Sp2;
 
 //RGB LED PINs
-int Red = 6;
-;               // PMW pin
+int Red = 6;      // PMW pin
 int Blue = 9;   //PMW Pins
 int Green = 10; //PMW Pins
 
