@@ -155,7 +155,7 @@ Direction =0
 Motor1_Speed =0 # Speed of motor Accurding to PMW values in Arduino 
 Motor2_Speed =0
 Truing_Speed =110
-net_Speed =90
+net_Speed =180
 
 while True:
     _, frame = cap.read()
